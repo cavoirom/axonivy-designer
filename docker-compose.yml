@@ -1,0 +1,12 @@
+version: '3.6'
+services:
+  runtime:
+    build: ./runtime_image
+    ports:
+      - 8081:8081
+    environment:
+      - DISPLAY=$HOST_IP_ADDRESS:0
+    volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+      - "$WORKSPACE:/opt/workspace"
+      - "$AXONIVY_DESIGNER:/opt/AxonIvyDesigner"
