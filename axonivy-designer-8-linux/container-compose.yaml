@@ -1,0 +1,14 @@
+version: "3.6"
+services:
+  runtime:
+    build: "./runtime_image"
+    ports:
+      - "8081:8081"
+    environment:
+      - DISPLAY=:0
+    volumes:
+      # - "$HOME/.Xauthority:/home/developer/.Xauthority:ro"
+      - "/tmp/.X11-unix:/tmp/.X11-unix:ro"
+      - "$WORKSPACE:/opt/workspace"
+      - "$AXONIVY_DESIGNER:/opt/AxonIvyDesigner"
+    userns_mode: "keep-id"
